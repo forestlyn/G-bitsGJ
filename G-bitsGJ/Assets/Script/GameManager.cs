@@ -48,11 +48,12 @@ public class GameManager:MonoBehaviour
 
     private void FixedUpdate()
     {
-        platformManager.FixedUpdate(Time.fixedDeltaTime * runSpeed);
+        platformManager.MyFixedUpdate(Time.fixedDeltaTime * runSpeed);
     }
 
     public void Update()
     {
-        platformManager.Update(Time.deltaTime * runSpeed);
+        platformManager.MyUpdate(Time.deltaTime * runSpeed);
+        BGManager.Instance.MyUpdate(Time.deltaTime * runSpeed);
     }
 }

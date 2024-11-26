@@ -16,7 +16,7 @@ public class PlatformManager : IPlatformManager
 
     public List<BasePlatform> platforms = new List<BasePlatform>();
 
-    public void Update(float deltaTime)
+    public void MyUpdate(float deltaTime)
     {
         createTimer += deltaTime;
         if (createTimer >= createInterval)
@@ -27,7 +27,7 @@ public class PlatformManager : IPlatformManager
         }
     }
 
-    public void FixedUpdate(float fixedDeltaTime)
+    public void MyFixedUpdate(float fixedDeltaTime)
     {
         for (int i = platforms.Count - 1; i >= 0; i--)
         {
