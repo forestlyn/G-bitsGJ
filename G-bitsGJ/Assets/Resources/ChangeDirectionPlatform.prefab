@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972025592816481446}
   - component: {fileID: 5739553567070548468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7812464715132379244}
   - component: {fileID: 6297841429055036998}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5439517412086139197}
   - component: {fileID: 5039503625165731758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1282719323061959804}
   - component: {fileID: 1411703380690263781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340625855184870748}
   - component: {fileID: 6780014256759798358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 932504053527963458}
   - component: {fileID: -2930686412792983295}
   - component: {fileID: 5843452987167450411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChangeDirectionPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

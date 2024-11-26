@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567711220650697516}
   - component: {fileID: 2607642214324155557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8760438821546850490}
   - component: {fileID: 7879049185399256733}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7374069324798644830}
   - component: {fileID: 7334195618604619262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 2569164450553841499}
   - component: {fileID: 4770027183770673174}
   - component: {fileID: 7955228163683604954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpinePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,6 +304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   platformType: 2
+  isPlayerOn: 0
 --- !u!61 &7955228163683604954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -359,7 +360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1248722069729879466}
   - component: {fileID: 441007623918715617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1542077118947879871}
   - component: {fileID: 2197984559567078636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

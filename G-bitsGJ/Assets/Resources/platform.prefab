@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 935310943132916064}
   - component: {fileID: 80771752928768114}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4774837420070887829}
   - component: {fileID: 4343380513846525135}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885101369333099172}
   - component: {fileID: 2856570542399675147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5331350382438228555}
   - component: {fileID: 6949584057156607011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327686611665667899}
   - component: {fileID: 648800799713239575}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  platformType: 0
 --- !u!1 &8303134777716237101
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,7 +397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3024084181261414399}
   - component: {fileID: 4945665623193609628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (16x16)_6 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
