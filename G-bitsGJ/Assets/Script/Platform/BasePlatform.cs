@@ -22,7 +22,7 @@ public class BasePlatform : MonoBehaviour
     public virtual void MyFixedUpdate(float fixedDeltaTime)
     {
         // 计算物体在世界空间中的移动量
-        Vector3 movement = speed * Vector3.up * Time.fixedDeltaTime;
+        Vector3 movement = speed * Vector3.up * fixedDeltaTime;
         //Debug.Log("movement: " + movement+" "+transform.position);
         // 将移动量应用到物体的位置上
         transform.Translate(movement);

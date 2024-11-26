@@ -4,14 +4,14 @@ using Unity.Mathematics;
 using UnityEngine;
 
 
-public class CreatePlatform : MonoBehaviour
+public class CreatePlatformScript : MonoBehaviour
 {
     [SerializeField]
     private PlatformScriptableList platformList;
     [SerializeField]
     private Transform[] createPoints;
 
-    private static CreatePlatform instance;
+    private static CreatePlatformScript instance;
 
     private float totalProbability;
 
@@ -26,7 +26,7 @@ public class CreatePlatform : MonoBehaviour
                 Debug.LogError("CreatePlatform prefab not found");
                 return;
             }
-            instance = Instantiate(go).GetComponent<CreatePlatform>();
+            instance = Instantiate(go).GetComponent<CreatePlatformScript>();
             foreach (var platform in instance.platformList.platformList)
             {
                 platform.currentProbability = platform.probability;
@@ -59,6 +59,18 @@ public class CreatePlatform : MonoBehaviour
         Vector3 position = GetRandomPosition();
         GameObject platform = GetRandomPlatform();
         if(platform != null)
+        {
+            platform.GetComponent<BasePlatform>().ReInit(position);
+        }
+        return platform.GetComponent<BasePlatform>();
+    }
+
+    public static BasePlatform Create(Vector2 position,PlatformType platformType)
+    {
+        CreateIfNotExist();
+
+        GameObject platform = instance.platformPool.GetPlatform(platformType);
+        if (platform != null)
         {
             platform.GetComponent<BasePlatform>().ReInit(position);
         }

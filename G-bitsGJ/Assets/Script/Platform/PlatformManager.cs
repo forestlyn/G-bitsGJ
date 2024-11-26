@@ -2,7 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformManager : MonoBehaviour
+
+public interface IPlatformManager
+{
+    public void CreatePlatform(Vector2 position, PlatformType platformType);
+}
+
+public class PlatformManager : IPlatformManager
 {
     public float createInterval = 2.0f;
 
@@ -10,32 +16,36 @@ public class PlatformManager : MonoBehaviour
 
     public List<BasePlatform> platforms = new List<BasePlatform>();
 
-    private void Update()
+    public void Update(float deltaTime)
     {
-        createTimer += Time.deltaTime;
+        createTimer += deltaTime;
         if (createTimer >= createInterval)
         {
             createTimer = 0.0f;
             createInterval = Random.Range(1.0f, 2.0f);
-            platforms.Add(CreatePlatform.Create());
+            platforms.Add(CreatePlatformScript.Create());
         }
     }
 
-    public void FixedUpdate()
+    public void FixedUpdate(float fixedDeltaTime)
     {
         for (int i = platforms.Count - 1; i >= 0; i--)
         {
             var platform = platforms[i];
             if (platform.gameObject.activeSelf == true)
             {
-                platform.MyFixedUpdate(Time.fixedDeltaTime);
+                platform.MyFixedUpdate(fixedDeltaTime);
             }
             else
             {
-                CreatePlatform.Reduce(platform);
+                CreatePlatformScript.Reduce(platform);
                 platforms.RemoveAt(i);
             }
         }
     }
 
+    public void CreatePlatform(Vector2 position, PlatformType platformType)
+    {
+        platforms.Add(CreatePlatformScript.Create(position, platformType));
+    }
 }
