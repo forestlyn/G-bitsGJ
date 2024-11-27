@@ -5,9 +5,9 @@ using UnityEngine;
 public class SpinePlatform : BasePlatform
 {
     public bool isPlayerOn = false;
-    public override void MyFixedUpdate(float fixedDeltaTime)
+    public override void MyUpdate(float deltaTime)
     {
-        base.MyFixedUpdate(fixedDeltaTime);
+        base.MyUpdate(deltaTime);
         if (isPlayerOn)
         {
             // 攻击player

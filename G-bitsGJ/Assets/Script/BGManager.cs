@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BGManager :MonoBehaviour
+public class BGManager:MonoBehaviour
 {
     [SerializeField]
-    private BGScript[] bGScripts;
+    private BGScript bGScript;
 
     private static BGManager instance;
     public static BGManager Instance
@@ -23,10 +23,7 @@ public class BGManager :MonoBehaviour
 
     public void MyUpdate(float deltaTime)
     {
-        for (int i = 0; i < bGScripts.Length; i++)
-        {
-            bGScripts[i].MyUpdate(deltaTime);
-        }
+        bGScript?.MyUpdate(deltaTime);
     }
 
 }

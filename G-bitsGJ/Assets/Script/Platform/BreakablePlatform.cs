@@ -10,9 +10,9 @@ public class BreakablePlatform : BasePlatform
     private bool beginTimer = false;
     [SerializeField]
     private float timer = 0;
-    public override void MyFixedUpdate(float fixedDeltaTime)
+    public override void MyUpdate(float fixedDeltaTime)
     {
-        base.MyFixedUpdate(fixedDeltaTime);
+        base.MyUpdate(fixedDeltaTime);
         if(beginTimer)
         {
             timer += fixedDeltaTime;

@@ -48,7 +48,6 @@ public class GameManager:MonoBehaviour
 
     private void FixedUpdate()
     {
-        platformManager.MyFixedUpdate(Time.fixedDeltaTime * runSpeed);
     }
 
     public void Update()
