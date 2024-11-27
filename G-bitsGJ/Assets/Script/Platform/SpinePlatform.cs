@@ -20,16 +20,18 @@ public class SpinePlatform : BasePlatform
         isPlayerOn = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.transform.tag == "Player")
         {
             isPlayerOn = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    protected override void OnCollisionExit2D(Collision2D collision)
     {
+        base.OnCollisionExit2D(collision);
         if (collision.transform.tag == "Player")
         {
             isPlayerOn = false;

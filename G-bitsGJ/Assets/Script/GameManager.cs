@@ -44,6 +44,7 @@ public class GameManager:MonoBehaviour
     private void Init()
     {
         platformManager = new PlatformManager();
+        PlayerManager.Instance.CreatePlayer(new Vector2(0, 5));
     }
 
     private void FixedUpdate()
