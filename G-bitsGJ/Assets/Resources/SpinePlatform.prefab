@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2569164450553841499}
   - component: {fileID: 4770027183770673174}
   - component: {fileID: 7955228163683604954}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpinePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}

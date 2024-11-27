@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 932504053527963458}
   - component: {fileID: -2930686412792983295}
   - component: {fileID: 5843452987167450411}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ChangeDirectionPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
