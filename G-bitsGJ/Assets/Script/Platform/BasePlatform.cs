@@ -28,7 +28,7 @@ public class BasePlatform : MonoBehaviour
         transform.position += (movement);
         if (movement.y >= 0)
         {
-            Debug.Log("movement: " + movement + " " + transform.position + " frament:" + framentCount + " " + Time.deltaTime);
+            //Debug.Log("movement: " + movement + " " + transform.position + " frament:" + framentCount + " " + Time.deltaTime);
             framentCount++;
         }
         if (transform.position.y > 6)
@@ -55,4 +55,14 @@ public class BasePlatform : MonoBehaviour
     //        Reduce();
     //    }
     //}
+
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Player进入
+    }
+
+    protected virtual void OnCollisionExit2D(Collision2D collision)
+    {
+        //player离开
+    }
 }

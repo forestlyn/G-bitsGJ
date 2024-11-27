@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   platformType: 0
+  framentCount: 0
   breakTime: 2
   beginTimer: 0
   timer: 0

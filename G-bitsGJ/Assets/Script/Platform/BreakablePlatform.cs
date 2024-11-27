@@ -32,8 +32,9 @@ public class BreakablePlatform : BasePlatform
         timer = 0;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected override void OnCollisionEnter2D(Collision2D collision)
     {
+        base.OnCollisionEnter2D(collision);
         if (collision.transform.tag == "Player")
         {
             beginTimer = true;
