@@ -92,7 +92,7 @@ public class CreatePlatformScript : MonoBehaviour
                     platform.currentProbability -= platform.probabilityDescending;
                     instance.totalProbability -= platform.probabilityDescending;
                 }
-                Debug.Log("Create platform: " + platform.platformType);
+                //Debug.Log("Create platform: " + platform.platformType);
                 return instance.platformPool.GetPlatform(platform.platformType);
             }
         }
