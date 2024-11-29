@@ -24,7 +24,5 @@ public class ChangeDirectionPlatform : BasePlatform
                 player.Direction = direction;
             }
         }
-        //Debug.Log("ChangeDirectionPlatform OnCollisionEnter2D");
-        //collision.transform.GetComponent<Player>().ChangeState(PlayerState.Walk);
     }
 }
