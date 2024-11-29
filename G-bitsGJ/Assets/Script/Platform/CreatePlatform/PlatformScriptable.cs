@@ -15,8 +15,3 @@ public class PlatformScriptable
     public GameObject platformObj;
 }
 
-[CreateAssetMenu(fileName = "PlatformList", menuName = "ScriptableObjects/Platform", order = 1)]
-public class PlatformScriptableList : ScriptableObject
-{
-    public PlatformScriptable[] platformList;
-}

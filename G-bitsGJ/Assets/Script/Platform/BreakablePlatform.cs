@@ -31,6 +31,7 @@ public class BreakablePlatform : BasePlatform
         beginTimer = false;
         timer = 0;
         animator.SetBool("Break", false);
+        
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
