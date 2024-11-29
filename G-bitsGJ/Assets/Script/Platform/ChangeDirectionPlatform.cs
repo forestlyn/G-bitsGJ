@@ -18,7 +18,13 @@ public class ChangeDirectionPlatform : BasePlatform
         if (collision.transform.tag == "Player")
         {
             // 改变Player方向
-
+            IPlayer player = collision.transform.GetComponent<IPlayer>();
+            if(player != null)
+            {
+                player.Direction = direction;
+            }
         }
+        //Debug.Log("ChangeDirectionPlatform OnCollisionEnter2D");
+        //collision.transform.GetComponent<Player>().ChangeState(PlayerState.Walk);
     }
 }

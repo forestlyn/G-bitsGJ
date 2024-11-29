@@ -65,7 +65,7 @@ public class BasePlatform : MonoBehaviour
 
             if (contact.point.y > transform.position.y)
             {
-                //Debug.Log("Player is on top of the platform");
+                Debug.Log("Player is on top of the platform");
                 IPlayer player = collision.transform.GetComponent<IPlayer>();
                 if (player != null)
                 {

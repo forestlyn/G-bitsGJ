@@ -150,7 +150,7 @@ public class Player : MonoBehaviour , IPlayer
             base.Update();
             // Physics2D.Raycast(player.transform.position , )
             Vector2 center = (Vector2)player.transform.position + player.Direction_vector2 * 0.5f;
-            Vector2 size = new Vector2(1, 0.25f);
+            Vector2 size = new Vector2(0.5f, 0.2f);
             var collider2D = Physics2D.OverlapBox(center, size , 0 , LayerMask.GetMask("Platform"));
             //Gizmos.DrawWireCube(center, size);
             if (collider2D != null)
@@ -179,7 +179,7 @@ public class Player : MonoBehaviour , IPlayer
         {
             Gizmos.color = Color.red;
             Vector2 center = (Vector2)transform.position + Direction_vector2 * 0.5f;
-            Vector2 size = new Vector2(1, 0.25f);
+            Vector2 size = new Vector2(0.5f, 0.2f);
             Gizmos.DrawWireCube(center, size);
         }
     }

@@ -156,6 +156,7 @@ MonoBehaviour:
   platformType: 0
   framentCount: 0
   breakTime: 2
+  animator: {fileID: 5787298687677089916}
   beginTimer: 0
   timer: 0
 --- !u!61 &5152537139289442571

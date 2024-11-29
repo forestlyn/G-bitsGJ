@@ -8,7 +8,8 @@ public enum InputType
     None,
     SwipeLeft,
     SwipeRight,
-    SwipeDown
+    SwipeDown,
+    Delete
 }
 public class InputManager
 {
@@ -22,7 +23,7 @@ public class InputManager
 
     public void MyUpdate(float deltaTime)
     {
-        if(deltaTime == 0)
+        if (deltaTime == 0)
         {
             return;
         }
@@ -39,6 +40,19 @@ public class InputManager
             DetectSwipe(direction);
             isSwiping = false;
         }
+
+        if (Input.GetMouseButtonUp(1))
+        {
+            startTouchPosition = Input.mousePosition;
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(startTouchPosition);
+            RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero);
+            if (hit.collider != null)
+            {
+                Debug.Log("hit.collider.name: " + hit.collider.name);
+                HandleInput(InputType.Delete, hit.collider);
+            }
+        }
+
     }
 
     private void DetectSwipe(Vector2 direction)
@@ -74,10 +88,17 @@ public class InputManager
         HandleInput(inputType);
     }
 
-
-    private void HandleInput(InputType inputType)
+    Vector2 leftUp = new Vector2(-2.5f, 4f);
+    Vector2 rightDown = new Vector2(2.5f, -4f);
+    private void HandleInput(InputType inputType,Collider2D collider2D = null)
     {
+
         var position = Camera.main.ScreenToWorldPoint(startTouchPosition);
-        GameManager.Instance.HandleInput(inputType, position);
+
+        if (position.x >= leftUp.x && position.x <= rightDown.x
+            && position.y <= leftUp.y && position.y >= rightDown.y)
+        {
+            GameManager.Instance.HandleInput(inputType, position,collider2D);
+        }
     }
 }
