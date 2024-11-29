@@ -7,14 +7,10 @@ public class ChangeDirectionPlatform : BasePlatform
     [SerializeField]
     public PlayerDirection direction;
 
-    public Sprite[] sprites;
-
-    public SpriteRenderer spriteRenderer;
     public override void ReInit(Vector3 position)
     {
-       base.ReInit(position);
-        direction = Random.Range(0, 2) == 0 ? PlayerDirection.Left : PlayerDirection.Right;
-        spriteRenderer.sprite = sprites[(int)direction];
+        base.ReInit(position);
+        direction = platformType == PlatformType.ChangeDirectionLeft ? PlayerDirection.Left : PlayerDirection.Right;    
     }
     protected override void OnCollisionEnter2D(Collision2D collision)
     {
@@ -22,7 +18,7 @@ public class ChangeDirectionPlatform : BasePlatform
         if (collision.transform.tag == "Player")
         {
             // 改变Player方向
-            
+
         }
     }
 }

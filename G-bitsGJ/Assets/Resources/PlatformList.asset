@@ -16,7 +16,7 @@ MonoBehaviour:
   - platformType: 0
     probability: 30
     probabilityDescending: 0.5
-    currentProbability: 28.5
+    currentProbability: 29
     minProbability: 10
     platformObj: {fileID: 6590273795711675218, guid: a659de52ce24f484aaa0991a8d208eb9, type: 3}
   - platformType: 1
@@ -36,8 +36,14 @@ MonoBehaviour:
     probabilityDescending: 0
     currentProbability: 10
     minProbability: 10
-    platformObj: {fileID: 4615448146081620576, guid: b0fcd31477ab57040a1cc980b28053f7, type: 3}
+    platformObj: {fileID: 4615448146081620576, guid: f3aa58ae8cf66714895114643e293b8e, type: 3}
   - platformType: 4
+    probability: 10
+    probabilityDescending: 0
+    currentProbability: 10
+    minProbability: 10
+    platformObj: {fileID: 4615448146081620576, guid: b0fcd31477ab57040a1cc980b28053f7, type: 3}
+  - platformType: 5
     probability: 10
     probabilityDescending: 0
     currentProbability: 10

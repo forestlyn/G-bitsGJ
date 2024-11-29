@@ -4,7 +4,8 @@ public enum PlatformType
     Normal,
     Breakable,
     Spine,
-    ChangeDirection,
+    ChangeDirectionLeft,
+    ChangeDirectionRight,
     SlowDown
 }
 
