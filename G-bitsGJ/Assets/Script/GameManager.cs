@@ -69,7 +69,7 @@ public class GameManager:MonoBehaviour
         inputManager.MyUpdate(Time.deltaTime * runSpeed);
     }
 
-    public void HandleInput(InputType inputType, Vector2 position)
+    public void HandleInput(InputType inputType, Vector2 position, Collider2D collider2D)
     {
         //Debug.Log($"{inputType} {position}");
         switch (inputType)
@@ -82,6 +82,11 @@ public class GameManager:MonoBehaviour
                 break;
             case InputType.SwipeDown:
                 platformManager.CreatePlatform(position, PlatformType.Breakable);
+                break;
+            case InputType.Delete:
+                var platform = collider2D.GetComponent<BasePlatform>();
+                Debug.Log("platform: " + collider2D.name);
+                platform?.Reduce();
                 break;
         }
     }
