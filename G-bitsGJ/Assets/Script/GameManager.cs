@@ -1,4 +1,6 @@
 ﻿
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager:MonoBehaviour
@@ -32,6 +34,7 @@ public class GameManager:MonoBehaviour
     }
 
     private PlatformManager platformManager;
+    private InputManager inputManager;
 
     [SerializeField]
     private float runSpeed = 1.0f;
@@ -44,6 +47,8 @@ public class GameManager:MonoBehaviour
     private void Init()
     {
         platformManager = new PlatformManager();
+        platformManager.Init();
+        inputManager = new InputManager();
         PlayerManager.Instance.CreatePlayer(new Vector2(0, 5));
     }
 
@@ -55,5 +60,23 @@ public class GameManager:MonoBehaviour
     {
         platformManager.MyUpdate(Time.deltaTime * runSpeed);
         BGManager.Instance.MyUpdate(Time.deltaTime * runSpeed);
+        inputManager.MyUpdate(Time.deltaTime * runSpeed);
+    }
+
+    public void HandleInput(InputType inputType, Vector2 position)
+    {
+        Debug.Log($"{inputType} {position}");
+        switch (inputType)
+        {
+            case InputType.SwipeLeft:
+                platformManager.CreatePlatform(position, PlatformType.ChangeDirectionLeft);
+                break;
+            case InputType.SwipeRight:
+                platformManager.CreatePlatform(position, PlatformType.ChangeDirectionRight);
+                break;
+            case InputType.SwipeDown:
+                platformManager.CreatePlatform(position, PlatformType.Breakable);
+                break;
+        }
     }
 }

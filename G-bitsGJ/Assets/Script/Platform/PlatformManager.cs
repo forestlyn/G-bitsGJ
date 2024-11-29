@@ -17,6 +17,16 @@ public class PlatformManager : IPlatformManager
     public List<BasePlatform> platforms = new List<BasePlatform>();
     //private bool test = false;
     //private int count = 0;
+
+    public void Init()
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (var gameObject in gameObjects)
+        {
+            platforms.Add(gameObject.GetComponent<BasePlatform>());
+        }
+    }
+
     public void MyUpdate(float deltaTime)
     {
         createTimer += deltaTime;
@@ -35,6 +45,7 @@ public class PlatformManager : IPlatformManager
         UpdatePlatform(deltaTime);
     }
 
+    
     public void UpdatePlatform(float deltaTime)
     {
         for (int i = platforms.Count - 1; i >= 0; i--)

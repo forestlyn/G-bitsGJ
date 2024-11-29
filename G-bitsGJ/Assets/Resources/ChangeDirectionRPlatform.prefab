@@ -96,8 +96,8 @@ GameObject:
   - component: {fileID: -2930686412792983295}
   - component: {fileID: 5843452987167450411}
   m_Layer: 6
-  m_Name: ChangeDirectionPlatform
-  m_TagString: Untagged
+  m_Name: ChangeDirectionRPlatform
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,13 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  platformType: 3
+  platformType: 4
   framentCount: 0
-  direction: 0
-  sprites:
-  - {fileID: 21300000, guid: 9778730fb33dd394d91693f07f14059d, type: 3}
-  - {fileID: 21300000, guid: a1d663fa1264731479dd5b51377514fc, type: 3}
-  spriteRenderer: {fileID: 2762981705981513513}
+  direction: 1
 --- !u!61 &5843452987167450411
 BoxCollider2D:
   m_ObjectHideFlags: 0

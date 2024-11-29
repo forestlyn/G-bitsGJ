@@ -5,6 +5,8 @@ using UnityEngine;
 public class SpinePlatform : BasePlatform
 {
     public bool isPlayerOn = false;
+
+    public float Attack = 2f;
     public override void MyUpdate(float deltaTime)
     {
         base.MyUpdate(deltaTime);

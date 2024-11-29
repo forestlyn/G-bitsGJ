@@ -59,18 +59,19 @@ public class BasePlatform : MonoBehaviour
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         //Player进入
-        if(collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player")
         {
-            // 获取碰撞点
             ContactPoint2D contact = collision.GetContact(0);
 
-            // 检查碰撞点是否在平台上方
             if (contact.point.y > transform.position.y)
             {
-                // 玩家在平台上方
-                Debug.Log("Player is on top of the platform");
-                // 在这里实现减速逻辑
-                collision.transform.GetComponent<Player>()?.ChangeState(PlayerState.Walk);
+                //Debug.Log("Player is on top of the platform");
+                IPlayer player = collision.transform.GetComponent<IPlayer>();
+                if (player != null)
+                {
+                    player.Speed = 1f;
+                    player.ChangeState(PlayerState.Walk);
+                }
             }
         }
     }
@@ -78,7 +79,7 @@ public class BasePlatform : MonoBehaviour
     protected virtual void OnCollisionExit2D(Collision2D collision)
     {
         //player离开
-        if(collision.transform.tag == "Player")
+        if (collision.transform.tag == "Player")
             collision.transform.GetComponent<Player>()?.ChangeState(PlayerState.Drop);
     }
 }

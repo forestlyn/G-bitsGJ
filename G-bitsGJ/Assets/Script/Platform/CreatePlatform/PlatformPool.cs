@@ -64,6 +64,10 @@ public class PlatformPool
         BasePlatform basePlatform = platformObj.GetComponent<BasePlatform>();
         if (basePlatform)
         {
+            if (!platformPool.ContainsKey(basePlatform.platformType))
+            {
+                platformPool.Add(basePlatform.platformType, new List<GameObject>());
+            }
             platformPool[basePlatform.platformType]?.Add(platformObj);
         }
     }
