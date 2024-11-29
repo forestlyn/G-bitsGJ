@@ -10,13 +10,21 @@ public interface IPlatformManager
 
 public class PlatformManager : IPlatformManager
 {
-    public float createInterval = 2.0f;
-
+    public float createLeftInterval = 1.0f;
+    public float createRightInterval = 1.5f;
+    public float createInterval = 1.0f;
     public float createTimer = 0.0f;
 
     public List<BasePlatform> platforms = new List<BasePlatform>();
     //private bool test = false;
     //private int count = 0;
+
+    public PlatformManager(float createLeftInterval,float createRightInterval)
+    {
+        this.createInterval = Random.Range(createLeftInterval, createRightInterval);
+        this.createLeftInterval = createLeftInterval;
+        this.createRightInterval = createRightInterval;
+    }
 
     public void Init()
     {
@@ -33,7 +41,7 @@ public class PlatformManager : IPlatformManager
         if (createTimer >= createInterval)
         {
             createTimer = 0.0f;
-            createInterval = Random.Range(1.0f, 2.0f);
+            createInterval = Random.Range(createLeftInterval, createRightInterval);
             //if (test && count >= 1)
             //{
             //    return;

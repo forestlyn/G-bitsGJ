@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager:MonoBehaviour
 {
     private static GameManager instance;
+
     public static GameManager Instance
     {
         get
@@ -44,12 +45,17 @@ public class GameManager:MonoBehaviour
         set { runSpeed = value; }
     }
 
+    [Header("PlatformManager")]
+    [SerializeField]
+    public float createLeftInterval = 1.0f;
+    [SerializeField]
+    public float createRightInterval = 1.5f;
     private void Init()
     {
-        platformManager = new PlatformManager();
+        platformManager = new PlatformManager(createLeftInterval, createRightInterval);
         platformManager.Init();
         inputManager = new InputManager();
-        PlayerManager.Instance.CreatePlayer(new Vector2(0, 5));
+        PlayerManager.Instance.CreatePlayer(new Vector2(0, 3));
     }
 
     private void FixedUpdate()
@@ -65,7 +71,7 @@ public class GameManager:MonoBehaviour
 
     public void HandleInput(InputType inputType, Vector2 position)
     {
-        Debug.Log($"{inputType} {position}");
+        //Debug.Log($"{inputType} {position}");
         switch (inputType)
         {
             case InputType.SwipeLeft:
