@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public enum InputType
@@ -32,12 +33,17 @@ public class InputManager
         {
             return;
         }
+
         if (Input.GetMouseButtonDown(0))
         {
             startTouchPosition = Input.mousePosition;
             isSwiping = true;
-            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(startTouchPosition);
-            inputObj = GameObject.Instantiate(inputPrefab, worldPosition, Quaternion.identity);
+            Vector2 position = Camera.main.ScreenToWorldPoint(startTouchPosition);
+            if (position.x >= leftUp.x && position.x <= rightDown.x
+                    && position.y <= leftUp.y && position.y >= rightDown.y)
+            {
+                inputObj = GameObject.Instantiate(inputPrefab, position, Quaternion.identity);
+            }
         }
 
         if (Input.GetMouseButtonUp(0) && isSwiping)
@@ -98,7 +104,7 @@ public class InputManager
 
     Vector2 leftUp = new Vector2(-2.5f, 4f);
     Vector2 rightDown = new Vector2(2.5f, -4.5f);
-    private void HandleInput(InputType inputType,Collider2D collider2D = null)
+    private void HandleInput(InputType inputType, Collider2D collider2D = null)
     {
 
         var position = Camera.main.ScreenToWorldPoint(startTouchPosition);
@@ -106,7 +112,7 @@ public class InputManager
         if (position.x >= leftUp.x && position.x <= rightDown.x
             && position.y <= leftUp.y && position.y >= rightDown.y)
         {
-            GameManager.Instance.HandleInput(inputType, position,collider2D);
+            GameManager.Instance.HandleInput(inputType, position, collider2D);
         }
     }
 }

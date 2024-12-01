@@ -113,7 +113,7 @@ public class CreatePlatformScript : MonoBehaviour
     public static void Reduce(BasePlatform platform)
     {
         CreateIfNotExist();
-        Debug.Log($"instance is {instance != null} platformPool is {instance.platformPool != null}");
+        //Debug.Log($"instance is {instance != null} platformPool is {instance.platformPool != null}");
         if (instance != null && platform != null)
             instance.platformPool.ReducePlatform(platform.gameObject);
     }
