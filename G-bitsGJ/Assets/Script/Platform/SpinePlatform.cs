@@ -6,13 +6,17 @@ public class SpinePlatform : BasePlatform
 {
     public bool isPlayerOn = false;
 
-    public float Attack = 2f;
+    public int Attack = 2;
+
+    private IPlayer player = null;
     public override void MyUpdate(float deltaTime)
     {
         base.MyUpdate(deltaTime);
         if (isPlayerOn)
         {
             // 攻击player
+            if (player != null)
+                player.HP = player.HP - Attack;
         }
     }
 
@@ -28,6 +32,7 @@ public class SpinePlatform : BasePlatform
         if (collision.transform.tag == "Player")
         {
             isPlayerOn = true;
+            player = collision.transform.GetComponent<IPlayer>();
         }
     }
 

@@ -49,3 +49,9 @@ MonoBehaviour:
     currentProbability: 30
     minProbability: 30
     platformObj: {fileID: 6270381542233665869, guid: 87d8698ca17f24f4a929cf7d81a1fadc, type: 3}
+  - platformType: 6
+    probability: 0
+    probabilityDescending: 0
+    currentProbability: 0
+    minProbability: 0
+    platformObj: {fileID: 1744312537996192412, guid: 147bf79737145c64b9d1a2e1a3024412, type: 3}
