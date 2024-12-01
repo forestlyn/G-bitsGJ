@@ -16,10 +16,15 @@ public class InputManager
     private Vector2 startTouchPosition;
     private Vector2 currentTouchPosition;
     private bool isSwiping = false;
+    GameObject inputPrefab = Resources.Load<GameObject>("Input");
+
+    GameObject inputObj = null;
 
     public InputManager()
     {
+
     }
+
 
     public void MyUpdate(float deltaTime)
     {
@@ -31,6 +36,8 @@ public class InputManager
         {
             startTouchPosition = Input.mousePosition;
             isSwiping = true;
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(startTouchPosition);
+            inputObj = GameObject.Instantiate(inputPrefab, worldPosition, Quaternion.identity);
         }
 
         if (Input.GetMouseButtonUp(0) && isSwiping)
@@ -39,6 +46,7 @@ public class InputManager
             Vector2 direction = currentTouchPosition - startTouchPosition;
             DetectSwipe(direction);
             isSwiping = false;
+            GameObject.Destroy(inputObj);
         }
 
         if (Input.GetMouseButtonUp(1))
