@@ -56,7 +56,6 @@ public class GameManager:MonoBehaviour
         platformManager = new PlatformManager(createLeftInterval, createRightInterval);
         platformManager.Init();
         inputManager = new InputManager();
-        PlayerManager.Instance.CreatePlayer(new Vector2(0, 2));
         UIManager.Instance.Init();
         InitGameState();
     }
@@ -134,6 +133,15 @@ public class GameManager:MonoBehaviour
             GameManager.Instance.score = 0;
         }
 
+        public override void Update()
+        {
+            base.Update();
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                GameManager.Instance.ChangeGameState(GameStateType.Playing);
+            }
+        }
+
         public override void Exit()
         {
             base.Exit();
@@ -147,6 +155,7 @@ public class GameManager:MonoBehaviour
         {
             base.Enter();
             UIManager.Instance.ShowGameUI(true);
+            PlayerManager.Instance.CreatePlayer(new Vector2(0, 2));
         }
 
         public override void Update()

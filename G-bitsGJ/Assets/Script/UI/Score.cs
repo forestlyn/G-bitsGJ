@@ -10,6 +10,7 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         score = 0;
+        text = GetComponent<Text>();
     }
     public void SetScore(int score)
     {
