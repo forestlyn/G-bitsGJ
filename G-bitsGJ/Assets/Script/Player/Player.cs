@@ -96,7 +96,18 @@ public class Player : MonoBehaviour , IPlayer
     public int HP
     {
         get => hp;
-        set => hp = value;
+        set 
+        {
+            if(value != hp)
+            {
+                UIManager.Instance.SetHP(value);
+            }
+            if(value <= 0)
+            {
+                // Game Over
+            }
+            
+        }
     }
 
 
@@ -185,7 +196,7 @@ public class Player : MonoBehaviour , IPlayer
     }
 }
 
-public interface IPlayer
+public interface IPlayer 
 {
     PlayerDirection Direction{ get; set; }
     float Speed { get; set; }
