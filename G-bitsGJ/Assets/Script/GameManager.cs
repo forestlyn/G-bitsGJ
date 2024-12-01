@@ -14,8 +14,9 @@ public class GameManager:MonoBehaviour
         {
             if (instance == null)
             {
-                instance = Resources.Load<GameObject>("GameManager").GetComponent<GameManager>();
-                instance.Init();
+                // instance = Resources.Load<GameObject>("GameManager").GetComponent<GameManager>();
+                // instance.Init();
+                Debug.LogError("GameManager is null");
             }
             return instance;
         }
