@@ -13,7 +13,7 @@ public class HP : MonoBehaviour
 
     public void SetHP(int hp)
     {
-        int maxHP = 100;
+        float maxHP = 20;
         image.fillAmount = hp / maxHP;
     }
 }

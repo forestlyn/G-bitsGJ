@@ -28,6 +28,8 @@ public class Player : MonoBehaviour , IPlayer
     {
         transform.position = beginPosition;
         Direction = PlayerDirection.Right;
+        LastAttackedTime = 0;
+        HP = 20;
         InitComponent();
         InitState();
     }
@@ -92,19 +94,22 @@ public class Player : MonoBehaviour , IPlayer
         set => speed = value;
     }
 
+    float LastAttackedTime;
     private int hp;
     public int HP
     {
         get => hp;
         set 
         {
-            if(value != hp)
+            if(value != hp && Time.time - LastAttackedTime > 0.5f)
             {
                 UIManager.Instance.SetHP(value);
+                LastAttackedTime = Time.time;
             }
             if(value <= 0)
             {
                 // Game Over
+                GameManager.Instance.ChangeGameState(GameStateType.GameOver);
             }
             
         }
