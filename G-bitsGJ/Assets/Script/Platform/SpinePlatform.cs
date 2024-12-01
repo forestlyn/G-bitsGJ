@@ -17,6 +17,7 @@ public class SpinePlatform : BasePlatform
             // 攻击player
             if (player != null)
                 player.HP = player.HP - Attack;
+            Debug.Log("Player HP: " + player.HP + gameObject.name);
         }
     }
 

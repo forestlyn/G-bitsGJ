@@ -528,9 +528,9 @@ GameObject:
   - component: {fileID: 429547076}
   - component: {fileID: 429547077}
   - component: {fileID: 429547078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u9876\u4E0A\u5C16\u523A"
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1867,9 +1867,9 @@ GameObject:
   - component: {fileID: 1601666748}
   - component: {fileID: 1601666747}
   - component: {fileID: 1601666746}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "\u5730\u4E0B\u5C16\u523A"
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
