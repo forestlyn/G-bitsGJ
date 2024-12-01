@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 public enum InputType
@@ -16,10 +17,15 @@ public class InputManager
     private Vector2 startTouchPosition;
     private Vector2 currentTouchPosition;
     private bool isSwiping = false;
+    GameObject inputPrefab = Resources.Load<GameObject>("Input");
+
+    GameObject inputObj = null;
 
     public InputManager()
     {
+
     }
+
 
     public void MyUpdate(float deltaTime)
     {
@@ -27,10 +33,17 @@ public class InputManager
         {
             return;
         }
+
         if (Input.GetMouseButtonDown(0))
         {
             startTouchPosition = Input.mousePosition;
             isSwiping = true;
+            Vector2 position = Camera.main.ScreenToWorldPoint(startTouchPosition);
+            if (position.x >= leftUp.x && position.x <= rightDown.x
+                    && position.y <= leftUp.y && position.y >= rightDown.y)
+            {
+                inputObj = GameObject.Instantiate(inputPrefab, position, Quaternion.identity);
+            }
         }
 
         if (Input.GetMouseButtonUp(0) && isSwiping)
@@ -39,6 +52,7 @@ public class InputManager
             Vector2 direction = currentTouchPosition - startTouchPosition;
             DetectSwipe(direction);
             isSwiping = false;
+            GameObject.Destroy(inputObj);
         }
 
         if (Input.GetMouseButtonUp(1))
@@ -90,7 +104,7 @@ public class InputManager
 
     Vector2 leftUp = new Vector2(-2.5f, 4f);
     Vector2 rightDown = new Vector2(2.5f, -4.5f);
-    private void HandleInput(InputType inputType,Collider2D collider2D = null)
+    private void HandleInput(InputType inputType, Collider2D collider2D = null)
     {
 
         var position = Camera.main.ScreenToWorldPoint(startTouchPosition);
@@ -98,7 +112,7 @@ public class InputManager
         if (position.x >= leftUp.x && position.x <= rightDown.x
             && position.y <= leftUp.y && position.y >= rightDown.y)
         {
-            GameManager.Instance.HandleInput(inputType, position,collider2D);
+            GameManager.Instance.HandleInput(inputType, position, collider2D);
         }
     }
 }
