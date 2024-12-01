@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour , IUIManager
@@ -11,7 +12,8 @@ public class UIManager : MonoBehaviour , IUIManager
         {
             if (instance == null)
             {
-                instance = new UIManager();
+                // instance = new UIManager();
+                instance = GameObject.Find("UIManager").GetComponent<UIManager>();
             }
             return instance;
         }
