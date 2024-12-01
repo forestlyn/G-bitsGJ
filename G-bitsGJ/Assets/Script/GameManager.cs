@@ -3,8 +3,9 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class GameManager:MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
@@ -24,7 +25,7 @@ public class GameManager:MonoBehaviour
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(gameObject);
             return;
@@ -43,7 +44,7 @@ public class GameManager:MonoBehaviour
     private float runSpeed = 1.0f;
     public float RunSpeed
     {
-        get { return runSpeed; } 
+        get { return runSpeed; }
         set { runSpeed = value; }
     }
 
@@ -77,9 +78,11 @@ public class GameManager:MonoBehaviour
         switch (inputType)
         {
             case InputType.SwipeLeft:
+                position -= new Vector2(0.75f, 0);
                 platformManager.CreatePlatform(position, PlatformType.ChangeDirectionLeft);
                 break;
             case InputType.SwipeRight:
+                position += new Vector2(0.75f, 0);
                 platformManager.CreatePlatform(position, PlatformType.ChangeDirectionRight);
                 break;
             case InputType.SwipeDown:
@@ -94,7 +97,7 @@ public class GameManager:MonoBehaviour
     }
 
     private BaseGameState currentState;
-    private Dictionary<GameStateType, BaseGameState> stateList ;
+    private Dictionary<GameStateType, BaseGameState> stateList;
     private void InitGameState()
     {
         stateList = new Dictionary<GameStateType, BaseGameState>();
@@ -108,7 +111,7 @@ public class GameManager:MonoBehaviour
     public void ChangeGameState(GameStateType gameStateType)
     {
         Debug.Log("enter state: " + gameStateType);
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.Exit();
         }
@@ -116,7 +119,7 @@ public class GameManager:MonoBehaviour
         currentState.Enter();
     }
 
-    private float score ;
+    private float score;
 
 
     public class BaseGameState
@@ -133,14 +136,14 @@ public class GameManager:MonoBehaviour
             base.Enter();
             UIManager.Instance.ShowStartMenu(true);
             GameManager.Instance.score = 0;
-            
+
             Time.timeScale = 1;
         }
 
         public override void Update()
         {
             base.Update();
-            if(Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 GameManager.Instance.ChangeGameState(GameStateType.Playing);
             }
@@ -150,7 +153,7 @@ public class GameManager:MonoBehaviour
         {
             base.Exit();
             UIManager.Instance.ShowStartMenu(false);
-            
+
             Time.timeScale = 1;
         }
     }
@@ -161,7 +164,8 @@ public class GameManager:MonoBehaviour
         {
             base.Enter();
             UIManager.Instance.ShowGameUI(true);
-            PlayerManager.Instance.CreatePlayer(new Vector2(0, 2));
+            PlayerManager.Instance.CreatePlayer(new Vector2(0, 0));
+
             Time.timeScale = 1;
         }
 
@@ -171,7 +175,7 @@ public class GameManager:MonoBehaviour
             GameManager.Instance.score += Time.deltaTime; ;
             UIManager.Instance.SetScore((int)GameManager.Instance.score);
 
-            
+
             GameManager.Instance.platformManager.MyUpdate(Time.deltaTime * GameManager.Instance.runSpeed);
             BGManager.Instance.MyUpdate(Time.deltaTime * GameManager.Instance.runSpeed);
             GameManager.Instance.inputManager.MyUpdate(Time.deltaTime * GameManager.Instance.runSpeed);
@@ -181,8 +185,8 @@ public class GameManager:MonoBehaviour
         public override void Exit()
         {
             base.Exit();
-            UIManager.Instance.ShowGameUI(false);
-            
+            // UIManager.Instance.ShowGameUI(false);
+
             Time.timeScale = 1;
         }
     }
@@ -251,6 +255,11 @@ public class GameManager:MonoBehaviour
     public void ClickButton_pauseGame()
     {
         ChangeGameState(GameStateType.Pause);
+    }
+    public void ClickButton_returnToStartMenu()
+    {
+        // ChangeGameState(GameStateType.Start);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

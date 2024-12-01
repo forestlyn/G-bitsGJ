@@ -22,6 +22,11 @@ public class Player : MonoBehaviour , IPlayer
     public void MyUpdate()
     {
         currentState.Update();
+        if(Time.time - LastAddHPTime > 3 && HP < 20)
+        {
+            HP += 1;
+            LastAddHPTime = Time.time;
+        }
     }
 
     public void Init(Vector2 beginPosition)
@@ -95,22 +100,26 @@ public class Player : MonoBehaviour , IPlayer
     }
 
     float LastAttackedTime;
+    float LastAddHPTime;
     private int hp;
     public int HP
     {
         get => hp;
         set 
         {
+            Debug.Log("aaaPlayer HP: " + value);
             if(value != hp && Time.time - LastAttackedTime > 0.5f)
             {
                 UIManager.Instance.SetHP(value);
                 LastAttackedTime = Time.time;
+                hp = value;
             }
             if(value <= 0)
             {
                 // Game Over
                 GameManager.Instance.ChangeGameState(GameStateType.GameOver);
             }
+            Debug.Log("aaaPlayer HP: " + value);
             
         }
     }

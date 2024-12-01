@@ -21,10 +21,10 @@ public class SlowDownPlatform : BasePlatform
     protected override void OnCollisionExit2D(Collision2D collision)
     {
         base.OnCollisionExit2D(collision);
-        if (collision.transform.tag == "Player")
-        {
-            var player = collision.transform.GetComponent<IPlayer>();
-            player.Speed /= slowDownRate;
-        }
+        // if (collision.transform.tag == "Player")
+        // {
+        //     var player = collision.transform.GetComponent<IPlayer>();
+        //     player.Speed /= slowDownRate;
+        // }
     }
 }

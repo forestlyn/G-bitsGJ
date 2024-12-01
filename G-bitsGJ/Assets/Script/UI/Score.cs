@@ -7,15 +7,17 @@ public class Score : MonoBehaviour
 {
     private int score;
     private Text text;
+    private string preStr;
     private void Awake()
     {
+        preStr = "梦境时长：";
         score = 0;
         text = GetComponent<Text>();
     }
     public void SetScore(int score)
     {
         this.score = score;
-        text.text = score.ToString();
+        text.text = preStr + score.ToString();
     }
 
 }
