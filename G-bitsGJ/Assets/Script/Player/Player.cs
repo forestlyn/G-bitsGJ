@@ -19,7 +19,7 @@ public class Player : MonoBehaviour , IPlayer
         currentState.Enter();
     }
 
-    private void Update()
+    public void MyUpdate()
     {
         currentState.Update();
     }
