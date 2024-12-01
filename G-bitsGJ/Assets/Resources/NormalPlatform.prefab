@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5550827836042241992}
   m_Layer: 6
   m_Name: NormalPlatform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 6590273795711675218}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   platformType: 0
+  framentCount: 0
 --- !u!61 &5550827836042241992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -105,10 +106,6 @@ GameObject:
   - component: {fileID: 7338540957582714007}
   m_Layer: 0
   m_Name: "\u666E\u901A\u5E73\u53F0 (1)"
-  - component: {fileID: 1436365812210689108}
-  - component: {fileID: 5970386906228377709}
-  m_Layer: 6
-  m_Name: Terrain (16x16)_6 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

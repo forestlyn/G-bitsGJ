@@ -5,7 +5,7 @@ using UnityEngine;
 public class BreakablePlatform : BasePlatform
 {
     public float breakTime = 2f;
-
+    public Animator animator;
     [SerializeField]
     private bool beginTimer = false;
     [SerializeField]
@@ -30,6 +30,8 @@ public class BreakablePlatform : BasePlatform
         base.ReInit(position);
         beginTimer = false;
         timer = 0;
+        animator.SetBool("Break", false);
+        
     }
 
     protected override void OnCollisionEnter2D(Collision2D collision)
@@ -38,6 +40,7 @@ public class BreakablePlatform : BasePlatform
         if (collision.transform.tag == "Player")
         {
             beginTimer = true;
+            animator.SetBool("Break", true);
         }
     }
 }

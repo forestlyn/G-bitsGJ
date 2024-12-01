@@ -1,12 +1,12 @@
 ﻿
 using System;
+using System.Net.NetworkInformation;
 using Unity.Mathematics;
 using UnityEngine;
 
 
 public class CreatePlatformScript : MonoBehaviour
 {
-    [SerializeField]
     private PlatformScriptableList platformList;
     [SerializeField]
     private Transform[] createPoints;
@@ -16,6 +16,8 @@ public class CreatePlatformScript : MonoBehaviour
     private float totalProbability;
 
     private PlatformPool platformPool;
+
+
     private static void CreateIfNotExist()
     {
         if (instance == null)
@@ -27,10 +29,11 @@ public class CreatePlatformScript : MonoBehaviour
                 return;
             }
             instance = Instantiate(go).GetComponent<CreatePlatformScript>();
+            instance.platformList = Resources.Load<PlatformScriptableList>("SO/PlatformList");
             foreach (var platform in instance.platformList.platformList)
             {
                 platform.currentProbability = platform.probability;
-                instance.totalProbability += platform.currentProbability;    
+                instance.totalProbability += platform.currentProbability;
             }
             instance.platformPool = new PlatformPool(instance.platformList);
         }
@@ -38,7 +41,7 @@ public class CreatePlatformScript : MonoBehaviour
 
     public static void Reset()
     {
-        if(instance != null)
+        if (instance != null)
         {
             foreach (var platform in instance.platformList.platformList)
             {
@@ -58,14 +61,14 @@ public class CreatePlatformScript : MonoBehaviour
 
         Vector3 position = GetRandomPosition();
         GameObject platform = GetRandomPlatform();
-        if(platform != null)
+        if (platform != null)
         {
             platform.GetComponent<BasePlatform>().ReInit(position);
         }
         return platform.GetComponent<BasePlatform>();
     }
 
-    public static BasePlatform Create(Vector2 position,PlatformType platformType)
+    public static BasePlatform Create(Vector2 position, PlatformType platformType)
     {
         CreateIfNotExist();
 
@@ -87,7 +90,7 @@ public class CreatePlatformScript : MonoBehaviour
             tmpProbability += platform.currentProbability;
             if (randomValue <= tmpProbability)
             {
-                if(platform.currentProbability - platform.probabilityDescending >= platform.minProbability)
+                if (platform.currentProbability - platform.probabilityDescending >= platform.minProbability)
                 {
                     platform.currentProbability -= platform.probabilityDescending;
                     instance.totalProbability -= platform.probabilityDescending;
@@ -110,6 +113,8 @@ public class CreatePlatformScript : MonoBehaviour
     public static void Reduce(BasePlatform platform)
     {
         CreateIfNotExist();
-        instance.platformPool.ReducePlatform(platform.gameObject);
+        Debug.Log($"instance is {instance != null} platformPool is {instance.platformPool != null}");
+        if (instance != null && platform != null)
+            instance.platformPool.ReducePlatform(platform.gameObject);
     }
 }

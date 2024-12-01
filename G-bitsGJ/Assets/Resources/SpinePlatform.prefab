@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7955228163683604954}
   m_Layer: 6
   m_Name: SpinePlatform
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,7 +111,7 @@ Transform:
   m_GameObject: {fileID: 6388803688967530200}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -134,6 +134,7 @@ MonoBehaviour:
   platformType: 2
   framentCount: 0
   isPlayerOn: 0
+  Attack: 2
 --- !u!61 &7955228163683604954
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +167,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0011132956, y: -0.12746835}
+  m_Offset: {x: -0.0011132956, y: -0.020125382}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -177,5 +178,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5074348, y: 0.26422644}
+  m_Size: {x: 1.5074348, y: 0.23225187}
   m_EdgeRadius: 0

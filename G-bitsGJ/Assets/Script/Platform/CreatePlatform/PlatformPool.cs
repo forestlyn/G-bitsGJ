@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -64,6 +60,10 @@ public class PlatformPool
         BasePlatform basePlatform = platformObj.GetComponent<BasePlatform>();
         if (basePlatform)
         {
+            if (!platformPool.ContainsKey(basePlatform.platformType))
+            {
+                platformPool.Add(basePlatform.platformType, new List<GameObject>());
+            }
             platformPool[basePlatform.platformType]?.Add(platformObj);
         }
     }
