@@ -107,6 +107,7 @@ public class GameManager:MonoBehaviour
     }
     public void ChangeGameState(GameStateType gameStateType)
     {
+        Debug.Log("enter state: " + gameStateType);
         if(currentState != null)
         {
             currentState.Exit();
@@ -132,6 +133,8 @@ public class GameManager:MonoBehaviour
             base.Enter();
             UIManager.Instance.ShowStartMenu(true);
             GameManager.Instance.score = 0;
+            
+            Time.timeScale = 1;
         }
 
         public override void Update()
@@ -147,6 +150,8 @@ public class GameManager:MonoBehaviour
         {
             base.Exit();
             UIManager.Instance.ShowStartMenu(false);
+            
+            Time.timeScale = 1;
         }
     }
 
@@ -157,6 +162,7 @@ public class GameManager:MonoBehaviour
             base.Enter();
             UIManager.Instance.ShowGameUI(true);
             PlayerManager.Instance.CreatePlayer(new Vector2(0, 2));
+            Time.timeScale = 1;
         }
 
         public override void Update()
@@ -176,6 +182,8 @@ public class GameManager:MonoBehaviour
         {
             base.Exit();
             UIManager.Instance.ShowGameUI(false);
+            
+            Time.timeScale = 1;
         }
     }
 
@@ -185,12 +193,14 @@ public class GameManager:MonoBehaviour
         {
             base.Enter();
             UIManager.Instance.ShowPause(true);
+            Time.timeScale = 0;
         }
 
         public override void Exit()
         {
             base.Exit();
             UIManager.Instance.ShowPause(false);
+            Time.timeScale = 1;
         }
     }
 
@@ -200,13 +210,15 @@ public class GameManager:MonoBehaviour
         {
             base.Enter();
             UIManager.Instance.ShowGameOver(true);
-            GameManager.Instance.score = 0;
+            Time.timeScale = 0;
         }
 
         public override void Exit()
         {
             base.Exit();
             UIManager.Instance.ShowGameOver(false);
+            GameManager.Instance.score = 0;
+            Time.timeScale = 1;
         }
     }
 
@@ -217,18 +229,28 @@ public class GameManager:MonoBehaviour
             base.Enter();
             UIManager.Instance.ShowWin(true);
             GameManager.Instance.score = 0;
+            Time.timeScale = 0;
         }
 
         public override void Exit()
         {
             base.Exit();
             UIManager.Instance.ShowWin(false);
+            Time.timeScale = 1;
         }
     }
 
     public void ClickButton_startGame()
     {
         ChangeGameState(GameStateType.Playing);
+    }
+    public void ClickButton_exitGame()
+    {
+        Application.Quit();
+    }
+    public void ClickButton_pauseGame()
+    {
+        ChangeGameState(GameStateType.Pause);
     }
 
 }
