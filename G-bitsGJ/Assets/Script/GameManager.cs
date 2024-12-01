@@ -226,6 +226,10 @@ public class GameManager:MonoBehaviour
         }
     }
 
+    public void ClickButton_startGame()
+    {
+        ChangeGameState(GameStateType.Playing);
+    }
 
 }
 
