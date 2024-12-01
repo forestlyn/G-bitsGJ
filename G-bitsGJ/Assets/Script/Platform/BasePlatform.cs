@@ -64,7 +64,7 @@ public class BasePlatform : MonoBehaviour
                 IPlayer player = collision.transform.GetComponent<IPlayer>();
                 if (player != null)
                 {
-                    player.Speed = 1f;
+                    player.Speed = 2f;
                     player.ChangeState(PlayerState.Walk);
                 }
             }

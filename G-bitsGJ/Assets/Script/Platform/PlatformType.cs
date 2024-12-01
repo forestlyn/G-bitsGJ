@@ -6,6 +6,7 @@ public enum PlatformType
     Spine,
     ChangeDirectionLeft,
     ChangeDirectionRight,
-    SlowDown
+    SlowDown,
+    Born,
 }
 

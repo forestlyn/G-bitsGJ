@@ -55,7 +55,7 @@ public class GameManager:MonoBehaviour
         platformManager = new PlatformManager(createLeftInterval, createRightInterval);
         platformManager.Init();
         inputManager = new InputManager();
-        PlayerManager.Instance.CreatePlayer(new Vector2(0, 3));
+        PlayerManager.Instance.CreatePlayer(new Vector2(0, 2));
     }
 
     private void FixedUpdate()
